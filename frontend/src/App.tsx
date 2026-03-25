@@ -20,6 +20,9 @@ import { LoginContext, User } from "./LoginContext";
 import ProfileList from "./pages/ProfileList";
 import ProfileCreate from "./pages/ProfileCreate";
 import ProfileRead from "./pages/ProfileRead";
+import TrafficInfluenceList from "./pages/TrafficInfluenceList";
+import TrafficInfluenceCreate from "./pages/TrafficInfluenceCreate";
+import TrafficInfluenceRead from "./pages/TrafficInfluenceRead";
 
 export default function App() {
   const [user, setUser] = useState<User | null>(() => {
@@ -214,6 +217,38 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <ProfileRead />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ti"
+            element={
+              <ProtectedRoute>
+                <TrafficInfluenceList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ti/create"
+            element={
+              <ProtectedRoute>
+                <TrafficInfluenceCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ti/edit/:id"
+            element={
+              <ProtectedRoute>
+                <TrafficInfluenceCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ti/read/:id"
+            element={
+              <ProtectedRoute>
+                <TrafficInfluenceRead />
               </ProtectedRoute>
             }
           />

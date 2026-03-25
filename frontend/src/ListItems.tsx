@@ -8,6 +8,7 @@ import FontDownload from "@mui/icons-material/FontDownload";
 import SupervisorAccountOutlinedIcon from "@mui/icons-material/SupervisorAccountOutlined";
 import AttachMoneyOutlinedIcon from "@mui/icons-material/AttachMoneyOutlined";
 import PersonIcon from "@mui/icons-material/Person";
+import DeviceHubIcon from '@mui/icons-material/DeviceHub';
 
 import { Link } from "react-router-dom";
 import { LoginContext } from "./LoginContext";
@@ -78,6 +79,14 @@ export const MainListItems = () => {
             <AttachMoneyOutlinedIcon />
           </ListItemIcon>
           <ListItemText primary="UE CHARGING" />
+        </ListItemButton>
+      </Link>
+      <Link to="/ti" style={{ color: "inherit", textDecoration: "inherit" }}>
+        <ListItemButton>
+          <ListItemIcon>
+            <DeviceHubIcon />
+          </ListItemIcon>
+          <ListItemText primary="TRAFFIC INFLUENCE" />
         </ListItemButton>
       </Link>
     </React.Fragment>

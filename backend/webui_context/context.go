@@ -59,15 +59,19 @@ func (context *WEBUIContext) UpdateNfProfiles() {
 
 	nfProfiles, err := SendSearchNFInstances(models.NrfNfManagementNfType_AMF)
 	if err != nil {
-		logger.CtxLog.Error(err)
-		return
+		logger.CtxLog.Error("AMF: ", err)
 	}
 	context.NFProfiles = append(context.NFProfiles, nfProfiles...)
 
 	nfProfiles, err = SendSearchNFInstances(models.NrfNfManagementNfType_SMF)
 	if err != nil {
-		logger.CtxLog.Error(err)
-		return
+		logger.CtxLog.Error("SMF: ", err)
+	}
+	context.NFProfiles = append(context.NFProfiles, nfProfiles...)
+
+	nfProfiles, err = SendSearchNFInstances(models.NrfNfManagementNfType_UDR)
+	if err != nil {
+		logger.CtxLog.Error("UDR: ", err)
 	}
 	context.NFProfiles = append(context.NFProfiles, nfProfiles...)
 
@@ -84,6 +88,8 @@ func (context *WEBUIContext) UpdateNfProfiles() {
 			uri = getNfOamUri(nfProfile, models.ServiceName("namf-oam"))
 		case models.NrfNfManagementNfType_SMF:
 			uri = getNfOamUri(nfProfile, models.ServiceName("nsmf-oam"))
+		case models.NrfNfManagementNfType_UDR:
+			uri = getNfOamUri(nfProfile, models.ServiceName("nudr-dr"))
 		}
 		if uri != "" {
 			context.NFOamInstances = append(context.NFOamInstances, NfOamInstance{

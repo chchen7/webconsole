@@ -39,6 +39,7 @@ func verifyDestPath(requestedURI string) string {
 		"tenant",
 		"charging",
 		"login",
+		"ti",
 	}
 
 	destPath := filepath.Clean(requestedURI)

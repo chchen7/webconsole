@@ -299,4 +299,34 @@ var routes = Routes{
 		"/profile/:profileName",
 		PutProfile,
 	},
+	{
+		"Get Traffic Influence UDR",
+		http.MethodGet,
+		"/traffic-influence/udr",
+		GetTrafficInfluenceRulesUDR,
+	},
+	{
+		"Get Individual Traffic Influence UDR",
+		http.MethodGet,
+		"/traffic-influence/udr/:subId",
+		GetIndividualTrafficInfluenceRuleUDR,
+	},
+	{
+		"Post Traffic Influence UDR",
+		http.MethodPost,
+		"/traffic-influence/udr",
+		PostTrafficInfluenceRuleUDR,
+	},
+	{
+		"Delete Traffic Influence UDR",
+		http.MethodDelete,
+		"/traffic-influence/udr/:subId",
+		DeleteTrafficInfluenceRuleUDR,
+	},
+	{
+		"Put Traffic Influence UDR",
+		http.MethodPut,
+		"/traffic-influence/udr/:subId",
+		PutTrafficInfluenceRuleUDR,
+	},
 }
