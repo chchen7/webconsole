@@ -14,6 +14,7 @@ import (
 	"github.com/free5gc/webconsole/backend/logger"
 	"github.com/free5gc/webconsole/backend/webui_context"
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
 	"go.mongodb.org/mongo-driver/bson"
 )
 
@@ -152,7 +153,7 @@ func PostTrafficInfluenceRuleUDR(c *gin.Context) {
 	webuiSelf.UpdateNfProfiles()
 
 	if udrUris := webuiSelf.GetOamUris(models.NrfNfManagementNfType_UDR); udrUris != nil {
-		influenceId := fmt.Sprintf("ti-%d", time.Now().Unix())
+		influenceId := fmt.Sprintf("ti-%s", uuid.New().String())
 		requestUri := fmt.Sprintf("%s/nudr-dr/v2/application-data/influenceData/%s", udrUris[0], influenceId)
 		udrPayload := models.TrafficInfluData{
 			AfAppId: "OAM-WebConsole",
